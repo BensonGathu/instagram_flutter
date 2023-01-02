@@ -23,7 +23,7 @@ class Post {
 
   Map<String, dynamic> toJson() => {
         "uid": uid,
-        "description": description,
+        "description": description, 
         "username": username,
         "postId": postId,
         "datePublished": datePublished,
