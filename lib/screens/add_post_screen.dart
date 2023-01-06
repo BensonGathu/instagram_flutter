@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -68,9 +67,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
     );
   }
 
-
-
-    void uploadPost(String uid, String username, String profImage) async {
+  void uploadPost(String uid, String username, String profImage) async {
     setState(() {
       _isLoading = true;
     });
@@ -78,9 +75,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
     try {
       // upload to storage and db
       String res = await FirestoreMethods().uploadPost(
-         _file!,
+        _file!,
         _descriptionController.text,
-       
         uid,
         username,
         profImage,
@@ -95,19 +91,18 @@ class _AddPostScreenState extends State<AddPostScreen> {
         );
         clearImage();
       } else {
-        showSnackBar( res,context);
+        showSnackBar(res, context);
       }
     } catch (err) {
       setState(() {
         _isLoading = false;
       });
       showSnackBar(
-        
-        err.toString(),context,
+        err.toString(),
+        context,
       );
     }
   }
-
 
   void clearImage() {
     setState(() {
@@ -115,19 +110,16 @@ class _AddPostScreenState extends State<AddPostScreen> {
     });
   }
 
-
   @override
   void dispose() {
     super.dispose();
     _descriptionController.dispose();
   }
 
-
- @override
+  @override
   Widget build(BuildContext context) {
     final UserProvider userProvider = Provider.of<UserProvider>(context);
-
-    return _file  == null
+    return _file == null
         ? Center(
             child: IconButton(
               icon: const Icon(
@@ -149,7 +141,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
               centerTitle: false,
               actions: <Widget>[
                 TextButton(
-                  onPressed: () => uploadPost( 
+                  onPressed: () => uploadPost(
                     userProvider.getUser.uid,
                     userProvider.getUser.username,
                     userProvider.getUser.profilePicURL,
@@ -175,11 +167,11 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        userProvider.getUser.profilePicURL,
-                      ),
-                    ),
+                    // CircleAvatar(
+                    //   backgroundImage: NetworkImage(
+                    //     userProvider.getUser.profilePicURL,
+                    //   ),
+                    // ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: TextField(
