@@ -22,7 +22,7 @@ class LikeAnimation extends StatefulWidget {
   State<LikeAnimation> createState() => _LikeAnimationState();
 }
 
-class _LikeAnimationState extends State<LikeAnimation> {
+class _LikeAnimationState extends State<LikeAnimation> with SingleTickerProviderStateMixin{
   late AnimationController controller;
   late Animation<double> scale;
 
