@@ -45,7 +45,7 @@ class _SignupScreenState extends State<SignupScreen> {
       _image = image;
     });
   }
-
+ 
   void signUpUser() async {
     setState(() {
       _isLoading = true;
@@ -164,7 +164,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
           //login button
           InkWell(
-              onTap: signUpUser,
+              onTap: signUpUser, 
               child: Container(
                 width: double.infinity,
                 alignment: Alignment.center,

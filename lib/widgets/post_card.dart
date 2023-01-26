@@ -46,12 +46,12 @@ class _PostCardState extends State<PostCard> {
                     .toList(),
               ),
             ));
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {
     final model.User user = Provider.of<UserProvider>(context).getUser;
- 
+
     return Container(
       color: mobileBackgroundColor,
       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -142,11 +142,12 @@ class _PostCardState extends State<PostCard> {
                 isAnimating: widget.snap['likes'].contains(user.uid),
                 child: IconButton(
                     onPressed: () {},
-                    
-                    icon:widget.snap['likes'].contains(user.uid)? const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    ): const Icon(Icons.favorite_border)),
+                    icon: widget.snap['likes'].contains(user.uid)
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          )
+                        : const Icon(Icons.favorite_border)),
               ),
               IconButton(
                   onPressed: () {},
@@ -204,10 +205,10 @@ class _PostCardState extends State<PostCard> {
                   onTap: () {},
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: Text(
+                    child: const  Text(
                       'View all 2000 comments',
                       style:
-                          const TextStyle(fontSize: 13, color: secondaryColor),
+                           TextStyle(fontSize: 13, color: secondaryColor),
                     ),
                   ),
                 ),
