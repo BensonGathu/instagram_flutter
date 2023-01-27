@@ -23,6 +23,7 @@ class StorageMethods{
           String id = const Uuid().v1();
           ref = ref.child(id);
         }
+      
 
     // putting in uint8list format -> Upload task like a future but not future
     UploadTask uploadTask = ref.putData(
